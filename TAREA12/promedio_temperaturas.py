@@ -4,7 +4,7 @@
 #Tercera dimensión: Días de la semana (7 días)
 
 temperaturas = [
-    [ #Ciudad 1
+    [ #SantoDomingo
         [ # Semana 1
             {"day": "Lunes", "temp": 32},
             {"day": "Martes", "temp": 36},
@@ -42,7 +42,7 @@ temperaturas = [
             {"day": "Domingo", "temp": 27}
         ]
     ],
-    [  # Ciudad 2
+    [  #Quito
         [  # Semana 1
             {"day": "Lunes", "temp": 21},
             {"day": "Martes", "temp": 32},
@@ -80,7 +80,7 @@ temperaturas = [
             {"day": "Domingo", "temp": 26}
         ]
     ],
-    [  # Ciudad 3
+    [  #Manta
         [  # Semana 1
             {"day": "Lunes", "temp": 38},
             {"day": "Martes", "temp": 44},
@@ -121,10 +121,33 @@ temperaturas = [
 ]
 
 #Calcular el promedio de temperaturas por semana
-ciudades = ["Ciudad 1", "Ciudad 2", "Ciudad 3"]
+ciudades = ["Santo Domingo", "Quito", "Manta"]
 for ciudad_idx, ciudad in enumerate(temperaturas) :
     for semana_idx, semana in enumerate(ciudad) :
         suma_temperaturas  = sum([dia["temp"] for dia in semana])
         promedio = round(suma_temperaturas/len(semana),2)
         print(f"El promedio de temperaturas en {ciudades[ciudad_idx]}, Semana {semana_idx + 1}: es {promedio} ")
 
+#Calcular el promedio de temperaturas de cada ciudad
+#Definir la función
+def promedio_temperaturas(temperatura_ciudades) : #Primero se define la función para calcular el promedio
+    promedio_temperaturas = {} #Se le da un formato de salida
+    for ciudad, temperaturas in temperatura_ciudades.items() : #Se realiza el ciclo for para las temperaturas de las ciudades
+        promedio = round(sum(temperaturas)/len(temperaturas),2) #Se presenta el código para el promedio de temperaturas y se redondea
+        promedio_temperaturas[ciudad] = promedio #Se presenta el código que va a mostrar el promedio de temperaturas por ciudad
+    return promedio_temperaturas #Este va devolver los valores escritos anteriormente las veces que sean necesarias, es decir, este código no solo sirve para las temperaturas sino que también para cualquier otro dato
+
+#Creamos un diccionario de ciudades y temperaturas
+temperatura_ciudades = {
+    "Santo Domingo": [28.86,32.14,26.71,32.57],   #En este caso se les dio nombres a las ciudades y los datos de temperatura de 4 semanas
+    "Quito": [31.14,30.71,34,32.71],
+    "Manta": [38.14,34.43,33.43,32.43]
+}
+
+#Llamamos a la función para calcular el promedio de temperaturas
+promedio_temperaturas = promedio_temperaturas(temperatura_ciudades) #Se realiza el llamamiento a la función para que presente ahora si el cálculo realizado
+
+#Mostramos los resultados
+print("Promedio de temperaturas por Ciudad: ") #Finalmente se realiza print para mostrar los resultados obtenidos de los promedios de temperaturas por ciudad
+for ciudad, promedio in promedio_temperaturas.items():
+    print(f"{ciudad}: {promedio}°C")
