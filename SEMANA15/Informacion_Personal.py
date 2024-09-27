@@ -1,11 +1,20 @@
 #Crear un diccionario de información personal ficticia.
-informacion_personal = {"nombre":"José", "edad": 43, "ciudad":"Quito", "profesión":"Licenciado en Educación"}
-informacion_personal["ciudad"] = "Guayaquil" #Se realiza el cambio de ciudad
-informacion_personal["ocupación"] = "Docente" #Se agrega una nueva clave-valor para profesión
-print(informacion_personal.get("teléfono", "No existe el valor teléfono")) #Se verifica que exista el valor "teléfono"
-print("Se añade al diccionario el valor teléfono") #Escribo un mensaje que indique que se agregó dicho valor
+informacion_personal = {"nombre":"José Pérez", "edad": 43, "ciudad":"Quito", "profesión":"Licenciado en Educación"}
 
-#Agregar un número de teléfono ficticio
-informacion_personal["teléfono"] = "0989875910"
+#Acceder a ciudad y modificarla
+informacion_personal["ciudad"] = "Guayaquil" #Se realiza el cambio de ciudad
+
+#Acceder a profesión y modificarla
+informacion_personal["profesión"] = "Doctor" #Se agrega una nueva clave-valor para profesión
+
+#Verificar que existe el valor "teléfono" y si no existe agregarlo
+if "teléfono" not in informacion_personal: #Verificar si existe el valor teléfono
+    informacion_personal["teléfono"] = "0989875910" #Agregar un teléfono ficticio
+
+#Eliminar el valor edad porque es irrelevante
 del informacion_personal["edad"] #Se elimina el valor "edad" porque es irrelevante
-print("El diccionario final es: ", informacion_personal) #Finalmente se imprime el diccionario resultante
+
+#Imprimir el diccionario final
+print("El diccionario final es: ") #Finalmente se imprime el diccionario resultante
+for clave, valor in informacion_personal.items():
+    print(f"{clave}: {valor}")
