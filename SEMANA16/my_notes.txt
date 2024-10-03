@@ -1,0 +1,5 @@
+Linea 1: Realizar tareas. 
+Linea 2: Hacer evaluaciones. 
+Linea 3: Tareas de casa. 
+Linea 4: Estamos realizando una prueba. 
+Linea 5: Escribiendo en archivos con Python. 
